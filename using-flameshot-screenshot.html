@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="english" itemscope itemtype="http://schema.org/Person">
+<html lang="en" itemscope itemtype="http://schema.org/Person">
 <head>
             <meta charset="utf-8">
         <!-- Site Meta Data -->
@@ -131,20 +131,20 @@ lots of packets for the most common distros:</p>
 <ul>
 <li><a href="https://www.archlinux.org/packages/community/x86_64/flameshot/">Arch</a></li>
 </ul>
-<div class="highlight"><pre><span></span>pacman -S flameshot
+<div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">flameshot</span>
 </pre></div>
 
 
 <p>Also exists the AUR package: <a href="https://aur.archlinux.org/packages/flameshot-git">flameshot-git</a>
 * <a href="https://tracker.debian.org/pkg/flameshot">Debian 10+</a></p>
-<div class="highlight"><pre><span></span>apt install flameshot
+<div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">flameshot</span>
 </pre></div>
 
 
 <ul>
 <li><a href="https://launchpad.net/ubuntu/+source/flameshot">Ubuntu 18.04+</a></li>
 </ul>
-<div class="highlight"><pre><span></span>apt install flameshot
+<div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">flameshot</span>
 </pre></div>
 
 
@@ -152,14 +152,14 @@ lots of packets for the most common distros:</p>
 <li><a href="https://software.opensuse.org/package/flameshot">openSUSE</a></li>
 <li><a href="https://apps.fedoraproject.org/packages/flameshot">Fedora</a></li>
 </ul>
-<div class="highlight"><pre><span></span>dnf install flameshot
+<div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="n">install</span> <span class="n">flameshot</span>
 </pre></div>
 
 
 <ul>
 <li><a href="https://github.com/voidlinux/void-packages/tree/master/srcpkgs/flameshot">Void Linux</a></li>
 </ul>
-<div class="highlight"><pre><span></span>xbps-install flameshot
+<div class="highlight"><pre><span></span><span class="n">xbps</span><span class="o">-</span><span class="n">install</span> <span class="n">flameshot</span>
 </pre></div>
 
 
@@ -189,7 +189,7 @@ also export your configurations into a new file, import from other file or set t
 default configuration.</p>
 <p><img alt="General configuration" src="https://cmolinaord.github.io/images/flameshot_config_general.png"></p>
 <p>By default, the configuration file is stored in:</p>
-<div class="highlight"><pre><span></span>~/.config/Dharkael/flameshot.conf
+<div class="highlight"><pre><span></span><span class="o">~/</span><span class="p">.</span><span class="n">config</span><span class="o">/</span><span class="n">Dharkael</span><span class="o">/</span><span class="n">flameshot</span><span class="p">.</span><span class="n">conf</span>
 </pre></div>
 
 
@@ -217,21 +217,21 @@ to launch Flameshot.</p>
 <ul>
 <li>Capture with GUI with custom save path:</li>
 </ul>
-<div class="highlight"><pre><span></span>flameshot gui -p ~/pictures/screenshot
+<div class="highlight"><pre><span></span><span class="n">flameshot</span> <span class="n">gui</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">pictures</span><span class="o">/</span><span class="n">screenshot</span>
 </pre></div>
 
 
 <ul>
 <li>Open the GUI with a delay of 5 seconds:</li>
 </ul>
-<div class="highlight"><pre><span></span>flameshot gui -d 5000
+<div class="highlight"><pre><span></span><span class="n">flameshot</span> <span class="n">gui</span> <span class="o">-</span><span class="n">d</span> <span class="mi">5000</span>
 </pre></div>
 
 
 <ul>
 <li>A fullscreen capture with custom save path and copying to clipboard too:</li>
 </ul>
-<div class="highlight"><pre><span></span>flameshot full -c -p ~/pictures/screenshot
+<div class="highlight"><pre><span></span><span class="n">flameshot</span> <span class="k">full</span> <span class="o">-</span><span class="k">c</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">pictures</span><span class="o">/</span><span class="n">screenshot</span>
 </pre></div>
 
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="english" itemscope itemtype="http://schema.org/Person">
+<html lang="en" itemscope itemtype="http://schema.org/Person">
 <head>
             <meta charset="utf-8">
         <!-- Site Meta Data -->
@@ -155,15 +155,15 @@ opciones, otros servicios como GitLab u otros, pero no bueno, yo usé mi cuenta 
 <p>Para empezar créate un directorio TFG/ donde tendremos todo el trabajo. Como queremos
 tener un control de versiones de (casi) todo lo que hay aquí dentro, vamos a inicializar un
 repositorio de Git aquí.</p>
-<div class="highlight"><pre><span></span>mkdir TFG
-cd TFG/
-git init
+<div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">TFG</span>
+<span class="n">cd</span> <span class="n">TFG</span><span class="o">/</span>
+<span class="n">git</span> <span class="n">init</span>
 </pre></div>
 
 
 <p>Para sincronizar éste nuevo repositorio con uno nuevo que hayamos creado en GitHub,
 podemos hacer</p>
-<div class="highlight"><pre><span></span>git remote add origin &lt;URL&gt;
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="k">add</span> <span class="n">origin</span> <span class="o">&lt;</span><span class="n">URL</span><span class="o">&gt;</span>
 </pre></div>
 
 
@@ -171,19 +171,19 @@ podemos hacer</p>
 <p>Si queremos podemos inicializarlo de otra forma. Creamos primero el repo en GitHub
 y luego vamos al icono de "Clone or download", copiamos la URL y sin haber creado
 el directorio TFG/ hacemos:</p>
-<div class="highlight"><pre><span></span>git clone &lt;URL&gt;
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">&lt;</span><span class="n">URL</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>Lo que creará el directorio TFG (o el nombre del directorio) con el proyecto vacío
 inicializado, listo para empezar. Para saber más sobre como crear repositorios y como
 manejarlos, os recomiendo mirar la docuentación de Git y GitHub, que están muy bien:
-<em> <a href="https://git-scm.com/book/es/v2">Git en español</a>
-</em> <a href="https://help.github.com/">GitHub</a></p>
+* <a href="https://git-scm.com/book/es/v2">Git en español</a>
+* <a href="https://help.github.com/">GitHub</a></p>
 <p>Dentro de esta carpeta iremos creando varios subdirectorios para organizar todo
 lo que el proyecto necesita, código fuente Latex, imágenes, el resultado en PDF...</p>
 <p>Para empezar a escribir en Latex, créate un directorio tex/ y uno pdf/</p>
-<div class="highlight"><pre><span></span>mkdir tex pdf
+<div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">tex</span> <span class="n">pdf</span>
 </pre></div>
 
 
@@ -211,19 +211,19 @@ para por ejemplo resaltar el texto con colores segun el lenguaje de programació
 Yo lo uso para Latex, Python, C, bash...</p>
 <p>En un entorno como Linux, a mi me gusta crear alias a los proyectos en los que trabajo,
 para acceder a ellos de manera muy cómoda desde la terminal escribiendo algo así como:</p>
-<div class="highlight"><pre><span></span>load_projectX
+<div class="highlight"><pre><span></span><span class="n">load_projectX</span>
 </pre></div>
 
 
 <p>El alias, que se define por ejemplo en tu <code>~/.bashrc</code> tendría la forma:</p>
-<div class="highlight"><pre><span></span>alias load_tfg=&#39;export WORKDIR=&quot;~/Documents/TFG&quot; &amp;&amp; cdw &amp;&amp; atom . &#39;
+<div class="highlight"><pre><span></span><span class="k">alias</span> <span class="n">load_tfg</span><span class="o">=</span><span class="s1">&#39;export WORKDIR=&quot;~/Documents/TFG&quot; &amp;&amp; cdw &amp;&amp; atom . &#39;</span>
 </pre></div>
 
 
 <p>Que automáticamente nos llevaría a la carpeta del proyecto (Documents/TFG) en tu home,
 y una vez allí lanzaría el editor de texto atom para empezar a trabajar.
 He incluido también un alias, cdw, que simpelemente hace:</p>
-<div class="highlight"><pre><span></span>alias cdw=&#39;cd $WORKDIR&#39;
+<div class="highlight"><pre><span></span><span class="k">alias</span> <span class="n">cdw</span><span class="o">=</span><span class="s1">&#39;cd $WORKDIR&#39;</span>
 </pre></div>
 
 
@@ -294,7 +294,7 @@ un poco más eficiente.</p>
 <p>Si haces <code>make tfg_prev</code>, después de comprobar que esté actualizado (y recompilar
 en caso negativo), abrirá el documento usando el lector de pdf que tengamos configurado
 mediante el archivo de configuración de latexmk, <code>.latexmkrc</code>, cuyo contenido será:</p>
-<div class="highlight"><pre><span></span>$pdf_previewer = evince;
+<div class="highlight"><pre><span></span><span class="err">$</span><span class="n">pdf_previewer</span> <span class="o">=</span> <span class="n">evince</span><span class="p">;</span>
 </pre></div>
 
 
@@ -317,9 +317,9 @@ añadía un par de líneas comentadas de la siguiente forma:</p>
 
 
 <p>Con lo que, al ejecutar el comando <code>make_debug_warnings</code>, me aparecería:</p>
-<div class="highlight"><pre><span></span>Mostrando lineas con WARNINGS:
-tex/archivo_con_warnings.tex-25: Revisar este punto porque tal y cual
-tex/otro_archivo.tex-63: Otro error que corregir aqui
+<div class="highlight"><pre><span></span><span class="n">Mostrando</span> <span class="n">lineas</span> <span class="n">con</span> <span class="n">WARNINGS</span><span class="p">:</span>
+<span class="n">tex</span><span class="o">/</span><span class="n">archivo_con_warnings</span><span class="p">.</span><span class="n">tex</span><span class="o">-</span><span class="mi">25</span><span class="p">:</span> <span class="n">Revisar</span> <span class="n">este</span> <span class="n">punto</span> <span class="n">porque</span> <span class="n">tal</span> <span class="n">y</span> <span class="n">cual</span>
+<span class="n">tex</span><span class="o">/</span><span class="n">otro_archivo</span><span class="p">.</span><span class="n">tex</span><span class="o">-</span><span class="mi">63</span><span class="p">:</span> <span class="n">Otro</span> <span class="n">error</span> <span class="n">que</span> <span class="n">corregir</span> <span class="n">aqui</span>
 </pre></div>
 
 
@@ -327,8 +327,8 @@ tex/otro_archivo.tex-63: Otro error que corregir aqui
 revisarlos (y eliminar las anotaciones) antes de imprimir la versión definitiva.</p>
 <p>Otra cosa que quiero mencionar es un script interesante que creé y que lo llamaba mediante
 este comando:</p>
-<div class="highlight"><pre><span></span>debug_figures_unused:
-    ./scripts/search_unused.sh
+<div class="highlight"><pre><span></span><span class="n">debug_figures_unused</span><span class="p">:</span>
+    <span class="p">.</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">search_unused</span><span class="p">.</span><span class="n">sh</span>
 </pre></div>
 
 
@@ -338,21 +338,21 @@ de revisar que las imágenes que he incluído son las que quiero incluir y que n
 he dejado ninguna imágen interesante sin usar. Lo ideal, sería mantener limpio el
 directorio de imágenes, y quitar las que realmente no quiera usar, para que esta lista
 se reduzca a cero si todo está bien.</p>
-<div class="highlight"><pre><span></span>let N=0
-let n=0
+<div class="highlight"><pre><span></span><span class="nv">let</span> <span class="nv">N</span><span class="o">=</span><span class="mi">0</span>
+<span class="nv">let</span> <span class="nv">n</span><span class="o">=</span><span class="mi">0</span>
 
-echo &quot;Figuras no usadas:&quot;
-for fig in $(ls {svg,img}/*); do
-    let N=N+1
-    grep $fig tex/*.tex &amp;&gt; /dev/null
-    if [[ $? == 1 ]]; then
-        let n=n+1
-        echo &quot;   $fig&quot;;
-    fi;
-done
+<span class="nv">echo</span> <span class="s2">&quot;</span><span class="s">Figuras no usadas:</span><span class="s2">&quot;</span>
+<span class="k">for</span> <span class="nv">fig</span> <span class="nv">in</span> $<span class="ss">(</span><span class="nv">ls</span> {<span class="nv">svg</span>,<span class="nv">img</span>}<span class="cm">/*); do</span>
+<span class="cm">    let N=N+1</span>
+<span class="cm">    grep $fig tex/*.tex &amp;&gt; /dev/null</span>
+<span class="cm">    if [[ $? == 1 ]]; then</span>
+<span class="cm">        let n=n+1</span>
+<span class="cm">        echo &quot;   $fig&quot;;</span>
+<span class="cm">    fi;</span>
+<span class="cm">done</span>
 
-echo &quot; &quot;
-echo $n figuras no usadas de $N
+<span class="cm">echo &quot; &quot;</span>
+<span class="cm">echo $n figuras no usadas de $N</span>
 </pre></div>
 
 
@@ -365,13 +365,13 @@ de la compilación que son auxiliares. En mi caso también he incluido el direct
 que contiene resultados intermedios de la compilación de los SVG que se incluyen
 en el documento, y que los proceso con una libreria de Inkscape/latex.
 Así quedaría mi .gitignore:</p>
-<div class="highlight"><pre><span></span>*.log
-*.aux
-*.gz
-*.toc
-pdf*
-*.tex.bak
-svg-inkscape
+<div class="highlight"><pre><span></span><span class="o">*</span><span class="p">.</span><span class="n">log</span>
+<span class="o">*</span><span class="p">.</span><span class="n">aux</span>
+<span class="o">*</span><span class="p">.</span><span class="n">gz</span>
+<span class="o">*</span><span class="p">.</span><span class="n">toc</span>
+<span class="n">pdf</span><span class="o">*</span>
+<span class="o">*</span><span class="p">.</span><span class="n">tex</span><span class="p">.</span><span class="n">bak</span>
+<span class="n">svg</span><span class="o">-</span><span class="n">inkscape</span>
 </pre></div>
 
 
@@ -400,7 +400,7 @@ línea a <code>mi_estilo.sty</code>:</p>
 
 <p>En el código LATEX, en el sitio donde queramos incluir nuestra página de bibliografía
 simplemente debemos escribir:</p>
-<div class="highlight"><pre><span></span>\bibliography{doc/TFG}
+<div class="highlight"><pre><span></span><span class="err">\</span><span class="n">bibliography</span><span class="err">{</span><span class="n">doc</span><span class="o">/</span><span class="n">TFG</span><span class="err">}</span>
 </pre></div>
 
 
@@ -424,7 +424,7 @@ segundo busca en el código LATEX las citas a bibliografía que has incluído.</
 una amplísima comunidad de gente haciendo cosas muy buenas y compartiéndolas. La
 filosofía del software libre.</p>
 <p>Para el caso concreto de la portada, puedes usar el típico comando básico:</p>
-<div class="highlight"><pre><span></span>\maketitle
+<div class="highlight"><pre><span></span><span class="err">\</span><span class="n">maketitle</span>
 </pre></div>
 
 
