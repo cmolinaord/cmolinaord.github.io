@@ -125,7 +125,7 @@ en general. Por otro lado, para que un gestor de versiones enfocado a código fu
 es necesario que haya un código, me explico, que sería menos efectivo hacer un control
 de versiones con Git de un archivo de texto de Microsoft Word o LibreOffice, ya
 que éstos encapsulan el archivo en un binario codificado.</p>
-<p>Usando Git iba a ser capáz de llevar un control de versiones exhaustivo, muy útil a
+<p>Usando Git iba a ser capaz de llevar un control de versiones exhaustivo, muy útil a
 la hora de escribir un trabajo de éstas características. Quiero escribir éste artículo
 para aquellos que tengan que realizar su Trabajo de Fin de Grado, Master o Tesis, con
 el objetivo de mostrarles la forma en que yo lo he hecho, que es más fácil de lo
@@ -134,13 +134,13 @@ nunca han trabajado con un gestor de versiones. Me consta que, por ejemplo, en f
 y otras carreras científicas o técnicas, es relativamente común saber usar LaTeX,
 pero es mucho más raro el uso de controles de versiones, más habitual entre programadores
 e informáticos.</p>
-<p>Aprender LaTeX no es tan dificil por otra parte. Yo digo que sé usarlo, pero realmente
-cada vez que me pongo a escribir, estoy contínuamente consultando manuales, tutoriales
+<p>Aprender LaTeX no es tan difícil por otra parte. Yo digo que sé usarlo, pero realmente
+cada vez que me pongo a escribir, estoy continuamente consultando manuales, tutoriales
 y foros para las dudas que me surgen. Y esa es realmente la forma de aprender,
 yo no he asistido a ningún curso ni nada por el estilo. Así, que si no lo usas todavía,
 atrévete a probarlo, verás que con poco esfuerzo consigues un texto muy bonito, y con
 la ventaja de que está escrito en un código, que cada vez que lo compilas, el resultado
-es exáctamente el mismo, nada de esos problemas de los procesadores de texto tradicionales,
+es exactamente el mismo, nada de esos problemas de los procesadores de texto tradicionales,
 que mueves un párrafo y todas las tablas e imágenes se te van a la página que no quieres
 o cosas así.</p>
 <h1>Monta el proyecto</h1>
@@ -152,7 +152,7 @@ cuenta de GitHub. Ésto último no es realmente necesario, sirve para subir una 
 de nuestro repositorio a los servidores de GitHub por si queremos tenerlo disponible con
 compañeros, o desde otro ordenador, o simplemente tener una copia de seguridad. Hay otras
 opciones, otros servicios como GitLab u otros, pero no bueno, yo usé mi cuenta de GitHub.</p>
-<p>Para empezar créate un directorio TFG/ donde tendremos todo el trabajo. Como queremos
+<p>Para empezar crea un directorio TFG/ donde tendremos todo el trabajo. Como queremos
 tener un control de versiones de (casi) todo lo que hay aquí dentro, vamos a inicializar un
 repositorio de Git aquí.</p>
 <div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">TFG</span>
@@ -177,19 +177,19 @@ el directorio TFG/ hacemos:</p>
 
 <p>Lo que creará el directorio TFG (o el nombre del directorio) con el proyecto vacío
 inicializado, listo para empezar. Para saber más sobre como crear repositorios y como
-manejarlos, os recomiendo mirar la docuentación de Git y GitHub, que están muy bien:
+manejarlos, os recomiendo mirar la documentación de Git y GitHub, que están muy bien:
 * <a href="https://git-scm.com/book/es/v2">Git en español</a>
 * <a href="https://help.github.com/">GitHub</a></p>
 <p>Dentro de esta carpeta iremos creando varios subdirectorios para organizar todo
 lo que el proyecto necesita, código fuente Latex, imágenes, el resultado en PDF...</p>
-<p>Para empezar a escribir en Latex, créate un directorio tex/ y uno pdf/</p>
+<p>Para empezar a escribir en Latex, crea un directorio tex/ y uno pdf/</p>
 <div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">tex</span> <span class="n">pdf</span>
 </pre></div>
 
 
 <p>En tex/ podemos empezar a escribir en archivos .tex, nuetro trabajo. Mi recomendación
 es dividir el proyecto en varios archivos, por ejemplo uno por cada capítulo, otro
-para la portada, y tener un archivo principal que llame a los otros en órden.</p>
+para la portada, y tener un archivo principal que llame a los otros en orden.</p>
 <p><img alt="tex_folder" src="https://cmolinaord.github.io/images/tfg_folders_tex.png"></p>
 <p>En mi caso, el fichero tfg.tex llama a los otros capítulos y también a un archivo
 mi_estilo.sty dónde agrupo las librerías y comandos que usa mi documento de LaTeX.</p>
@@ -207,7 +207,7 @@ online.</p>
 archivos de texto plano mediante un editor de texto que a mi me gusta mucho llamado
 <a href="https://atom.io/">Atom</a>. De hecho es el editor que suelo usar para todos mis proyectos
 de programación, es bastante configurable, y puedes añadirle extensiones y plug-ins
-para por ejemplo resaltar el texto con colores segun el lenguaje de programación.
+para por ejemplo resaltar el texto con colores según el lenguaje de programación.
 Yo lo uso para Latex, Python, C, bash...</p>
 <p>En un entorno como Linux, a mi me gusta crear alias a los proyectos en los que trabajo,
 para acceder a ellos de manera muy cómoda desde la terminal escribiendo algo así como:</p>
@@ -222,7 +222,7 @@ para acceder a ellos de manera muy cómoda desde la terminal escribiendo algo as
 
 <p>Que automáticamente nos llevaría a la carpeta del proyecto (Documents/TFG) en tu home,
 y una vez allí lanzaría el editor de texto atom para empezar a trabajar.
-He incluido también un alias, cdw, que simpelemente hace:</p>
+He incluido también un alias, cdw, que simplemente hace:</p>
 <div class="highlight"><pre><span></span><span class="k">alias</span> <span class="n">cdw</span><span class="o">=</span><span class="s1">&#39;cd $WORKDIR&#39;</span>
 </pre></div>
 
@@ -235,7 +235,7 @@ En mi caso, como he comentado antes, yo creé la carpeta tex/ para todos los arc
 con el código LaTeX, incluída la bibliografía.tex (sobre la que ahora dedicaré un
 apartado propio) y la configuración de estilo en <code>mi_estilo.sty</code>.</p>
 <p>El resto de carpetas serán del estilo, img/ (para imágenes jpg, png), svg/ (para los
-archivos de graficos vectoriales, que como son un código, se puede tener un control
+archivos de gráficos vectoriales, que como son un código, se puede tener un control
 de versiones bueno), y cualquier otro archivo que uséis en vuestro trabajo, como
 datos experimentales en CSV, texto, scripts de Matlab o similares.
 También recomiendo, en el caso de imágenes retocadas o con varias capas, que podamos
@@ -248,13 +248,13 @@ revisión o mejora del documento. En el siguiente apartado explicaré uno que us
 <p>El Makefile, para los que no estéis al corriente de lo que es, se trata de un
 mecanismo de ayuda a la compilación de programas, muy usado por ejemplo en C/C++.
 La idea es que el makefile te verifica si hay cosas ya compiladas para no repetir
-trabajo inutil. En el caso de LATEX ya existe un paquete que te ayuda a eso, y
+trabajo inútil. En el caso de LATEX ya existe un paquete que te ayuda a eso, y
 por ejemplo administra bien el tema de las referencias, tablas de contenido y eso.
 Si no lo sabéis, para que las referencias y las tablas de contenido se muestren bien
 en el documento final, latex debe hacer dos o más compilaciones, ya que la primera
 encuentra donde están las cosas referenciadas y las guarda en algún archivo temporal,
 y luego las referencia realmente.</p>
-<p>Si usaís el compliador de latex "tal cual" (pdflatex ejemplo.tex), puede que la primera vez os aparezcan
+<p>Si usáis el compilador de latex "tal cual" (pdflatex ejemplo.tex), puede que la primera vez os aparezcan
 referencias a sitios perdidos o desconocidos así: [?]</p>
 <p>El paquete que he comentado que se encarga de arreglar esto es <strong>latexmk</strong>, y
 creo que suele venir instalado junto al paquete básico de latex; si al
@@ -316,14 +316,14 @@ añadía un par de líneas comentadas de la siguiente forma:</p>
 </pre></div>
 
 
-<p>Con lo que, al ejecutar el comando <code>make_debug_warnings</code>, me aparecería:</p>
+<p>Con lo que, al ejecutar el comando <code>make debug_warnings</code>, me aparecería:</p>
 <div class="highlight"><pre><span></span><span class="n">Mostrando</span> <span class="n">lineas</span> <span class="n">con</span> <span class="n">WARNINGS</span><span class="p">:</span>
 <span class="n">tex</span><span class="o">/</span><span class="n">archivo_con_warnings</span><span class="p">.</span><span class="n">tex</span><span class="o">-</span><span class="mi">25</span><span class="p">:</span> <span class="n">Revisar</span> <span class="n">este</span> <span class="n">punto</span> <span class="n">porque</span> <span class="n">tal</span> <span class="n">y</span> <span class="n">cual</span>
 <span class="n">tex</span><span class="o">/</span><span class="n">otro_archivo</span><span class="p">.</span><span class="n">tex</span><span class="o">-</span><span class="mi">63</span><span class="p">:</span> <span class="n">Otro</span> <span class="n">error</span> <span class="n">que</span> <span class="n">corregir</span> <span class="n">aqui</span>
 </pre></div>
 
 
-<p>Monstrando en que archivo y en que línea están los warnings, con la idea de
+<p>Mostrando en que archivo y en que línea están los warnings, con la idea de
 revisarlos (y eliminar las anotaciones) antes de imprimir la versión definitiva.</p>
 <p>Otra cosa que quiero mencionar es un script interesante que creé y que lo llamaba mediante
 este comando:</p>
@@ -334,8 +334,8 @@ este comando:</p>
 
 <p>El script es un sencillo programa en bash que va a buscar en las carpetas de imágenes
 cuales de ellas no están referidas en el código latex, siendo una forma más
-de revisar que las imágenes que he incluído son las que quiero incluir y que no
-he dejado ninguna imágen interesante sin usar. Lo ideal, sería mantener limpio el
+de revisar que las imágenes que he incluido son las que quiero incluir y que no
+he dejado ninguna imagen interesante sin usar. Lo ideal, sería mantener limpio el
 directorio de imágenes, y quitar las que realmente no quiera usar, para que esta lista
 se reduzca a cero si todo está bien.</p>
 <div class="highlight"><pre><span></span><span class="nv">let</span> <span class="nv">N</span><span class="o">=</span><span class="mi">0</span>
@@ -363,7 +363,7 @@ no los incluya en el repositorio. En nuestro caso es recomendable no incluir los
 ya que se pueden compilar cada vez que queramos. También incluiremos algunos resultados
 de la compilación que son auxiliares. En mi caso también he incluido el directorio svg-inkscape/
 que contiene resultados intermedios de la compilación de los SVG que se incluyen
-en el documento, y que los proceso con una libreria de Inkscape/latex.
+en el documento, y que los proceso con una librería de Inkscape/latex.
 Así quedaría mi .gitignore:</p>
 <div class="highlight"><pre><span></span><span class="o">*</span><span class="p">.</span><span class="n">log</span>
 <span class="o">*</span><span class="p">.</span><span class="n">aux</span>
@@ -383,9 +383,9 @@ documentos bibliográficos y referencias. Nos lo explicaron en una sesión infor
 sobre los TFG organizada por la <a href="https://bib.us.es">Biblioteca</a> de la
 <a href="www.us.es">Universidad de Sevilla</a>, y la verdad es que me ha gustado bastante, sobre
 después de que lo recomendaran también otros profesores investigadores de la facultad
-a los que aprecio mucho, como es Rocio del Rio, de microelectrónica.</p>
-<p>Mandeley también está disponible para Linux, pero también existen otros gestores
-de biblografía que no conozco. Pues eso, que para combinar este gestor, o cualquier
+a los que aprecio mucho, como es Rocío del Rio, de microelectrónica.</p>
+<p>Mendeley también está disponible para Linux, pero también existen otros gestores
+de bibliografía que no conozco. Pues eso, que para combinar este gestor, o cualquier
 otro, lo que yo hice es exportar la lista de libros, artículos y referencias que
 tenía en una carpeta de Mendeley mediante el plug-in para LaTeX (BibTEX). Esto
 te crea un artículo <code>nombre.bib</code> que lo guardas donde quieras, y luego lo
