@@ -26,6 +26,9 @@
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="cmolina_ord">
         <meta name="twitter:image" content="">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://blockchain.info/Resources/js/pay-now-button.js"></script>
+
 
     <meta name="twitter:creator" content="cmolina_ord">
     <meta name="twitter:url" content="https://cmolinaord.github.io/calculando-la-duracion-de-un-dia-con-geogebra.html">
@@ -145,15 +148,16 @@ horizontal punteada en azul nos va a hacer un corte transversal de la Tierra, qu
 es representa en amarillo (visto desde arriba), indicando los ángulos en los que
 hay luz, entre la salida y la puesta de Sol.</p>
 <!DOCTYPE html>
-<html>
+<p><html>
 <head>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta charset="utf-8"/>
+<meta charset="utf-8"/></p>
 <script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
 
-<p></head>
+<p></head></p>
 <body>
-<div id="ggbApplet"></div></p>
+<div id="ggbApplet"></div>
+
 <script>
 var parameters = {
 "id": "ggbApplet",
@@ -198,9 +202,8 @@ var applet = new GGBApplet(parameters, '5.0', views);
 window.onload = function() {applet.inject('ggbApplet')};
 applet.setPreviewImage('data:image/gif;base64,R0lGODlhAQABAAAAADs=','https://www.geogebra.org/images/GeoGebra_loading.png','https://www.geogebra.org/images/applet_play.png');
 </script>
-
-<p></body>
-</html></p>
+</body>
+<p></html></p>
             </div>
             <div class="post_list">
                 <span>By </span>
@@ -208,7 +211,7 @@ applet.setPreviewImage('data:image/gif;base64,R0lGODlhAQABAAAAADs=','https://www
                 <span> in </span>
                 <span class="post_category"><a href="https://cmolinaord.github.io/category/geogebra.html" rel="bookmark"
                                                title="Permalink to geogebra">[ geogebra ]</a></span>
-                <span class="post_date">Wed 27 November 2019</span>
+                <span class="post_date">mié 27 noviembre 2019</span>
                 <div><span>Tags : </span>
                             <span><a href="https://cmolinaord.github.io/tag/science.html">#science, </a></span>
                 </div>
@@ -271,6 +274,27 @@ applet.setPreviewImage('data:image/gif;base64,R0lGODlhAQABAAAAADs=','https://www
                 href="https://github.com/cmolinaord/">@cmolinaord</a> from <a href="https://github.com/Parbhat/pelican-blue">the original</a>.
 		Thanks to <a href="https://parbhatpuri.com">@Parbhat</a>.
         </p>
+	<p>
+		If you want to make a me a donation, you can use the following Bitcoin adress:
+		<div style="font-size:16px;margin:0 auto;width:300px" class="blockchain-btn" data-address="3DUsTVWUMWRpMugR5Lb2gFPAihLSeMpqUu" data-shared="false">
+		<div class="blockchain stage-begin">
+			<img src="https://blockchain.info/Resources/buttons/donate_64.png"/>
+		</div>
+		<div class="blockchain stage-loading" style="text-align:center">
+			<img src="https://blockchain.info/Resources/loading-large.gif"/>
+		</div>
+		<div class="blockchain stage-ready">
+			<p align="center">Please Donate To Bitcoin Address: <b>[[address]]</b></p>
+			<p align="center" class="qr-code"></p>
+		</div>
+		<div class="blockchain stage-paid">
+			Donation of <b>[[value]] BTC</b> Received. Thank You.
+		</div>
+		<div class="blockchain stage-error">
+			<font color="red">[[error]]</font>
+		</div>
+		</div>
+	</p>
     </footer>
 
 

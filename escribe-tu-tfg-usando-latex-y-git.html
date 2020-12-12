@@ -26,6 +26,9 @@
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="cmolina_ord">
         <meta name="twitter:image" content="">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://blockchain.info/Resources/js/pay-now-button.js"></script>
+
 
     <meta name="twitter:creator" content="cmolina_ord">
     <meta name="twitter:url" content="https://cmolinaord.github.io/escribe-tu-tfg-usando-latex-y-git.html">
@@ -157,25 +160,22 @@ opciones, otros servicios como GitLab u otros, pero no bueno, yo usé mi cuenta 
 <p>Para empezar crea un directorio TFG/ donde tendremos todo el trabajo. Como queremos
 tener un control de versiones de (casi) todo lo que hay aquí dentro, vamos a inicializar un
 repositorio de Git aquí.</p>
-<div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">TFG</span>
-<span class="n">cd</span> <span class="n">TFG</span><span class="o">/</span>
-<span class="n">git</span> <span class="n">init</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">mkdir TFG</span>
+<span class="err">cd TFG/</span>
+<span class="err">git init</span>
+</code></pre></div>
 
 <p>Para sincronizar éste nuevo repositorio con uno nuevo que hayamos creado en GitHub,
 podemos hacer</p>
-<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="k">add</span> <span class="n">origin</span> <span class="o">&lt;</span><span class="n">URL</span><span class="o">&gt;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">git remote add origin &lt;URL&gt;</span>
+</code></pre></div>
 
 <p>con la URL de nuestro repositorio, algo así como https://github.com/usuario/TFG</p>
 <p>Si queremos podemos inicializarlo de otra forma. Creamos primero el repo en GitHub
 y luego vamos al icono de "Clone or download", copiamos la URL y sin haber creado
 el directorio TFG/ hacemos:</p>
-<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">&lt;</span><span class="n">URL</span><span class="o">&gt;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">git clone &lt;URL&gt;</span>
+</code></pre></div>
 
 <p>Lo que creará el directorio TFG (o el nombre del directorio) con el proyecto vacío
 inicializado, listo para empezar. Para saber más sobre como crear repositorios y como
@@ -185,9 +185,8 @@ manejarlos, os recomiendo mirar la documentación de Git y GitHub, que están mu
 <p>Dentro de esta carpeta iremos creando varios subdirectorios para organizar todo
 lo que el proyecto necesita, código fuente Latex, imágenes, el resultado en PDF...</p>
 <p>Para empezar a escribir en Latex, crea un directorio tex/ y uno pdf/</p>
-<div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">tex</span> <span class="n">pdf</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">mkdir tex pdf</span>
+</code></pre></div>
 
 <p>En tex/ podemos empezar a escribir en archivos .tex, nuetro trabajo. Mi recomendación
 es dividir el proyecto en varios archivos, por ejemplo uno por cada capítulo, otro
@@ -213,21 +212,18 @@ para por ejemplo resaltar el texto con colores según el lenguaje de programaci�
 Yo lo uso para Latex, Python, C, bash...</p>
 <p>En un entorno como Linux, a mi me gusta crear alias a los proyectos en los que trabajo,
 para acceder a ellos de manera muy cómoda desde la terminal escribiendo algo así como:</p>
-<div class="highlight"><pre><span></span><span class="n">load_projectX</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">load_projectX</span>
+</code></pre></div>
 
 <p>El alias, que se define por ejemplo en tu <code>~/.bashrc</code> tendría la forma:</p>
-<div class="highlight"><pre><span></span><span class="k">alias</span> <span class="n">load_tfg</span><span class="o">=</span><span class="s1">&#39;export WORKDIR=&quot;~/Documents/TFG&quot; &amp;&amp; cdw &amp;&amp; atom . &#39;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">alias load_tfg=&#39;export WORKDIR=&quot;~/Documents/TFG&quot; &amp;&amp; cdw &amp;&amp; atom . &#39;</span>
+</code></pre></div>
 
 <p>Que automáticamente nos llevaría a la carpeta del proyecto (Documents/TFG) en tu home,
 y una vez allí lanzaría el editor de texto atom para empezar a trabajar.
 He incluido también un alias, cdw, que simplemente hace:</p>
-<div class="highlight"><pre><span></span><span class="k">alias</span> <span class="n">cdw</span><span class="o">=</span><span class="s1">&#39;cd $WORKDIR&#39;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">alias cdw=&#39;cd $WORKDIR&#39;</span>
+</code></pre></div>
 
 <p>Una vez introducido como monto el entorno para empezar a trabajar, voy a dar algunos
 consejos que he adquirido tras la experiencia de hacer este trabajo en LATEX.</p>
@@ -263,11 +259,10 @@ creo que suele venir instalado junto al paquete básico de latex; si al
 escribir latexmk en un terminal no os hace nada, buscar info por internet, debe ser fácil.</p>
 <p>Pues bien, yo en mi Makefile (que simplemente es un archivo llamado makefile en la raíz
 del proyecto), he puesto estas primeras líneas:</p>
-<div class="highlight"><pre><span></span><span class="nv">OUTPUT_DIR</span> <span class="o">=</span> pdf
-<span class="nv">SRC_DIR</span> <span class="o">=</span> tex
-<span class="nv">TEX</span> <span class="o">=</span> latexmk -cd- -pdf -outdir<span class="o">=</span><span class="k">$(</span>OUTPUT_DIR<span class="k">)</span> --shell-escape
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">OUTPUT_DIR = pdf</span>
+<span class="err">SRC_DIR = tex</span>
+<span class="err">TEX = latexmk -cd- -pdf -outdir=$(OUTPUT_DIR) --shell-escape</span>
+</code></pre></div>
 
 <p>Son variables de entorno, tal como pueden declararse en un shell bash. Las 2 primeras
 definen los directorios donde están los pdf de salida y el código latex, respectivamente.
@@ -276,7 +271,7 @@ TEX es la variable que va a llamar a la función de compilado LATEX. El parámet
 -pdf- especifica que se cree un documento PDF, y --shell-escape permite que
 se ejecuten bien algunos comandos de shell que son necesarios para la bibliografía.</p>
 <p>Las siguientes lineas definen los comandos de compilación:</p>
-<div class="highlight"><pre><span></span><span class="c">#tfg</span>
+<div class="highlight"><pre><span></span><code><span class="c">#tfg</span>
 <span class="c">##############################</span>
 <span class="nf">tfg</span><span class="o">:</span> <span class="k">$(</span><span class="nv">OUTPUT_DIR</span><span class="k">)</span>/<span class="n">tfg</span>.<span class="n">pdf</span>
 
@@ -286,8 +281,7 @@ se ejecuten bien algunos comandos de shell que son necesarios para la bibliograf
 
 <span class="nf">tfg_prev</span><span class="o">:</span> <span class="n">tfg</span>
     <span class="k">$(</span>TEX<span class="k">)</span> <span class="k">$(</span>SRC_DIR<span class="k">)</span>/tfg.tex -pv
-</pre></div>
-
+</code></pre></div>
 
 <p>De esta forma, si luego escribes <code>make tfg</code>, se compilará el PDF sólo si el
 PDF existente no es el más reciente, y además solo se recompilarán las partes nuevas,
@@ -296,43 +290,38 @@ un poco más eficiente.</p>
 <p>Si haces <code>make tfg_prev</code>, después de comprobar que esté actualizado (y recompilar
 en caso negativo), abrirá el documento usando el lector de pdf que tengamos configurado
 mediante el archivo de configuración de latexmk, <code>.latexmkrc</code>, cuyo contenido será:</p>
-<div class="highlight"><pre><span></span><span class="err">$</span><span class="n">pdf_previewer</span> <span class="o">=</span> <span class="n">evince</span><span class="p">;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">$pdf_previewer = evince;</span>
+</code></pre></div>
 
 <p>Otros comandos que he incluido en mi Makefile son, por ejemplo, para limpiar toda
 compilación, PDFs y/o archivos temporales.</p>
 <p>Y luego creé otros comandos que me podría ayudar a revisar mi trabajo. Por ejemplo,
 en los puntos del código Latex que yo dejaba pendiente de revisar, ampliar, o corregir
 añadía un par de líneas comentadas de la siguiente forma:</p>
-<div class="highlight"><pre><span></span><span class="c">%WARNING</span>
-<span class="n">Revisar</span> <span class="n">este</span> <span class="n">punto</span> <span class="n">porque</span> <span class="n">tal</span> <span class="n">y</span> <span class="n">cual</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="c">%WARNING</span>
+<span class="n">Revisar</span> <span class="s">este</span> <span class="s">punto</span> <span class="s">porque</span> <span class="s">tal</span> <span class="s">y</span> <span class="s">cual</span>
+</code></pre></div>
 
 <p>Así que en el Makefile, creando un objetivo tal que así:</p>
-<div class="highlight"><pre><span></span><span class="n">debug_warnings</span><span class="o">:</span>
+<div class="highlight"><pre><span></span><code><span class="n">debug_warnings</span><span class="o">:</span>
     <span class="n">echo</span> <span class="s2">&quot;Mostrando lineas con WARNINGS:&quot;</span>
     <span class="n">grep</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">A1</span> <span class="s2">&quot;^%WARNING&quot;</span> <span class="n">$</span><span class="o">(</span><span class="n">SRC_DIR</span><span class="o">)/*.</span><span class="n">tex</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;WARNING&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/-%/: /&#39;</span>
     <span class="n">echo</span> <span class="s2">&quot; &quot;</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Con lo que, al ejecutar el comando <code>make debug_warnings</code>, me aparecería:</p>
-<div class="highlight"><pre><span></span><span class="n">Mostrando</span> <span class="n">lineas</span> <span class="n">con</span> <span class="n">WARNINGS</span><span class="p">:</span>
-<span class="n">tex</span><span class="o">/</span><span class="n">archivo_con_warnings</span><span class="p">.</span><span class="n">tex</span><span class="o">-</span><span class="mi">25</span><span class="p">:</span> <span class="n">Revisar</span> <span class="n">este</span> <span class="n">punto</span> <span class="n">porque</span> <span class="n">tal</span> <span class="n">y</span> <span class="n">cual</span>
-<span class="n">tex</span><span class="o">/</span><span class="n">otro_archivo</span><span class="p">.</span><span class="n">tex</span><span class="o">-</span><span class="mi">63</span><span class="p">:</span> <span class="n">Otro</span> <span class="n">error</span> <span class="n">que</span> <span class="n">corregir</span> <span class="n">aqui</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">Mostrando lineas con WARNINGS:</span>
+<span class="err">tex/archivo_con_warnings.tex-25: Revisar este punto porque tal y cual</span>
+<span class="err">tex/otro_archivo.tex-63: Otro error que corregir aqui</span>
+</code></pre></div>
 
 <p>Mostrando en que archivo y en que línea están los warnings, con la idea de
 revisarlos (y eliminar las anotaciones) antes de imprimir la versión definitiva.</p>
 <p>Otra cosa que quiero mencionar es un script interesante que creé y que lo llamaba mediante
 este comando:</p>
-<div class="highlight"><pre><span></span><span class="n">debug_figures_unused</span><span class="p">:</span>
-    <span class="p">.</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">search_unused</span><span class="p">.</span><span class="n">sh</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="c">debug_figures_unused:</span>
+<span class="c">    ./scripts/search_unused.sh</span>
+</code></pre></div>
 
 <p>El script es un sencillo programa en bash que va a buscar en las carpetas de imágenes
 cuales de ellas no están referidas en el código latex, siendo una forma más
@@ -340,11 +329,11 @@ de revisar que las imágenes que he incluido son las que quiero incluir y que no
 he dejado ninguna imagen interesante sin usar. Lo ideal, sería mantener limpio el
 directorio de imágenes, y quitar las que realmente no quiera usar, para que esta lista
 se reduzca a cero si todo está bien.</p>
-<div class="highlight"><pre><span></span><span class="nv">let</span> <span class="nv">N</span><span class="o">=</span><span class="mi">0</span>
-<span class="nv">let</span> <span class="nv">n</span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">N</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">let</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
 
-<span class="nv">echo</span> <span class="s2">&quot;</span><span class="s">Figuras no usadas:</span><span class="s2">&quot;</span>
-<span class="k">for</span> <span class="nv">fig</span> <span class="nv">in</span> $<span class="ss">(</span><span class="nv">ls</span> {<span class="nv">svg</span>,<span class="nv">img</span>}<span class="cm">/*); do</span>
+<span class="n">echo</span> <span class="ss">&quot;Figuras no usadas:&quot;</span>
+<span class="k">for</span> <span class="n">fig</span> <span class="k">in</span> <span class="err">$</span><span class="p">(</span><span class="n">ls</span> <span class="err">{</span><span class="n">svg</span><span class="p">,</span><span class="n">img</span><span class="err">}</span><span class="cm">/*); do</span>
 <span class="cm">    let N=N+1</span>
 <span class="cm">    grep $fig tex/*.tex &amp;&gt; /dev/null</span>
 <span class="cm">    if [[ $? == 1 ]]; then</span>
@@ -355,8 +344,7 @@ se reduzca a cero si todo está bien.</p>
 
 <span class="cm">echo &quot; &quot;</span>
 <span class="cm">echo $n figuras no usadas de $N</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>En el apartado de bibliografía comentaré dos comando más del Makefile relacionados con la bibliografía.</p>
 <h2>.gitignore</h2>
@@ -367,15 +355,14 @@ de la compilación que son auxiliares. En mi caso también he incluido el direct
 que contiene resultados intermedios de la compilación de los SVG que se incluyen
 en el documento, y que los proceso con una librería de Inkscape/latex.
 Así quedaría mi .gitignore:</p>
-<div class="highlight"><pre><span></span><span class="o">*</span><span class="p">.</span><span class="n">log</span>
-<span class="o">*</span><span class="p">.</span><span class="n">aux</span>
-<span class="o">*</span><span class="p">.</span><span class="n">gz</span>
-<span class="o">*</span><span class="p">.</span><span class="n">toc</span>
-<span class="n">pdf</span><span class="o">*</span>
-<span class="o">*</span><span class="p">.</span><span class="n">tex</span><span class="p">.</span><span class="n">bak</span>
-<span class="n">svg</span><span class="o">-</span><span class="n">inkscape</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">*.log</span>
+<span class="err">*.aux</span>
+<span class="err">*.gz</span>
+<span class="err">*.toc</span>
+<span class="err">pdf*</span>
+<span class="err">*.tex.bak</span>
+<span class="err">svg-inkscape</span>
+</code></pre></div>
 
 <h2>BibTEX</h2>
 <p>Para la bibliografía, un tema que es importante a la hora de realizar trabajos
@@ -395,29 +382,26 @@ incluyes en el código para que automáticamente se genere la página de "Biblio
 con el formato adecuado (en mi caso especifiqué el que usan en la publicaciones de
 <a href="https://ieeexplore.ieee.org/Xplore/home.jsp">IEEE</a>), simplemente añadiendo ésta
 línea a <code>mi_estilo.sty</code>:</p>
-<div class="highlight"><pre><span></span><span class="c">% BibTeX</span>
+<div class="highlight"><pre><span></span><code><span class="c">% BibTeX</span>
 <span class="o">\</span><span class="n">bibliographystyle</span><span class="p">{</span><span class="n">doc</span><span class="o">/</span><span class="n">myIEEEtran</span><span class="p">}</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>En el código LATEX, en el sitio donde queramos incluir nuestra página de bibliografía
 simplemente debemos escribir:</p>
-<div class="highlight"><pre><span></span><span class="err">\</span><span class="n">bibliography</span><span class="err">{</span><span class="n">doc</span><span class="o">/</span><span class="n">TFG</span><span class="err">}</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">\bibliography{doc/TFG}</span>
+</code></pre></div>
 
 <p>indicando la ruta donde se encuentra el archivo que antes exportamos desde Mendeley,
 mi caso se llama "TFG.bib" y está en el directorio doc/, junto a los artículos que
 consulté.</p>
 <p>Por último, con el objetivo de revisar la bibliografía y, como con las imágenes,
 evitar olvidos y/o fallos, en el Makefile creé los siguientes comandos:</p>
-<div class="highlight"><pre><span></span><span class="n">list_bibliography_available</span><span class="o">:</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_bibliography_available</span><span class="o">:</span>
     <span class="n">cat</span> <span class="n">doc</span><span class="o">/</span><span class="n">TFG</span><span class="o">.</span><span class="na">bib</span> <span class="o">|</span><span class="n">grep</span> <span class="o">^</span><span class="err">@</span> <span class="o">|</span><span class="n">cut</span> <span class="o">-</span><span class="n">d</span><span class="o">{</span> <span class="o">-</span><span class="n">f2</span> <span class="o">|</span><span class="n">cut</span> <span class="o">-</span><span class="n">d</span><span class="o">,</span> <span class="o">-</span><span class="n">f1</span>
 
 <span class="n">list_bibliography_used</span><span class="o">:</span>
     <span class="n">grep</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;\cite&quot;</span> <span class="n">tex</span><span class="o">/*.</span><span class="n">tex</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>El primero lista todos los documentos exportados en el archivo .bib, y el
 segundo busca en el código LATEX las citas a bibliografía que has incluído.</p>
@@ -426,9 +410,8 @@ segundo busca en el código LATEX las citas a bibliografía que has incluído.</
 una amplísima comunidad de gente haciendo cosas muy buenas y compartiéndolas. La
 filosofía del software libre.</p>
 <p>Para el caso concreto de la portada, puedes usar el típico comando básico:</p>
-<div class="highlight"><pre><span></span><span class="err">\</span><span class="n">maketitle</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">\maketitle</span>
+</code></pre></div>
 
 <p>Que si has especificado título, autor y fecha en la cabecera (antes de <code>\begin{document}</code>),
 te crea una página de título bastante simple pero correcta en muchos casos.
@@ -469,7 +452,7 @@ a compañeros o compartirlo en tus redes.</p>
                 <span> in </span>
                 <span class="post_category"><a href="https://cmolinaord.github.io/category/software.html" rel="bookmark"
                                                title="Permalink to software">[ software ]</a></span>
-                <span class="post_date">Thu 27 September 2018</span>
+                <span class="post_date">jue 27 septiembre 2018</span>
                 <div><span>Tags : </span>
                             <span><a href="https://cmolinaord.github.io/tag/workflow.html">#workflow, </a></span>
                             <span><a href="https://cmolinaord.github.io/tag/open-source.html">#open source, </a></span>
@@ -535,6 +518,27 @@ a compañeros o compartirlo en tus redes.</p>
                 href="https://github.com/cmolinaord/">@cmolinaord</a> from <a href="https://github.com/Parbhat/pelican-blue">the original</a>.
 		Thanks to <a href="https://parbhatpuri.com">@Parbhat</a>.
         </p>
+	<p>
+		If you want to make a me a donation, you can use the following Bitcoin adress:
+		<div style="font-size:16px;margin:0 auto;width:300px" class="blockchain-btn" data-address="3DUsTVWUMWRpMugR5Lb2gFPAihLSeMpqUu" data-shared="false">
+		<div class="blockchain stage-begin">
+			<img src="https://blockchain.info/Resources/buttons/donate_64.png"/>
+		</div>
+		<div class="blockchain stage-loading" style="text-align:center">
+			<img src="https://blockchain.info/Resources/loading-large.gif"/>
+		</div>
+		<div class="blockchain stage-ready">
+			<p align="center">Please Donate To Bitcoin Address: <b>[[address]]</b></p>
+			<p align="center" class="qr-code"></p>
+		</div>
+		<div class="blockchain stage-paid">
+			Donation of <b>[[value]] BTC</b> Received. Thank You.
+		</div>
+		<div class="blockchain stage-error">
+			<font color="red">[[error]]</font>
+		</div>
+		</div>
+	</p>
     </footer>
 
 

@@ -26,6 +26,9 @@
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="cmolina_ord">
         <meta name="twitter:image" content="">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://blockchain.info/Resources/js/pay-now-button.js"></script>
+
 
     <meta name="twitter:creator" content="cmolina_ord">
     <meta name="twitter:url" content="https://cmolinaord.github.io/using-flameshot-screenshot.html">
@@ -133,37 +136,32 @@ lots of packets for the most common distros:</p>
 <ul>
 <li><a href="https://www.archlinux.org/packages/community/x86_64/flameshot/">Arch</a></li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">flameshot</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">pacman -S flameshot</span>
+</code></pre></div>
 
 <p>Also exists the AUR package: <a href="https://aur.archlinux.org/packages/flameshot-git">flameshot-git</a>
 * <a href="https://tracker.debian.org/pkg/flameshot">Debian 10+</a></p>
-<div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">flameshot</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">apt install flameshot</span>
+</code></pre></div>
 
 <ul>
 <li><a href="https://launchpad.net/ubuntu/+source/flameshot">Ubuntu 18.04+</a></li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">flameshot</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">apt install flameshot</span>
+</code></pre></div>
 
 <ul>
 <li><a href="https://software.opensuse.org/package/flameshot">openSUSE</a></li>
 <li><a href="https://apps.fedoraproject.org/packages/flameshot">Fedora</a></li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="n">install</span> <span class="n">flameshot</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">dnf install flameshot</span>
+</code></pre></div>
 
 <ul>
 <li><a href="https://github.com/voidlinux/void-packages/tree/master/srcpkgs/flameshot">Void Linux</a></li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">xbps</span><span class="o">-</span><span class="n">install</span> <span class="n">flameshot</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">xbps-install flameshot</span>
+</code></pre></div>
 
 <ul>
 <li><a href="https://github.com/ManuelLR/docker-flameshot">Docker</a></li>
@@ -191,9 +189,8 @@ also export your configurations into a new file, import from other file or set t
 default configuration.</p>
 <p><img alt="General configuration" src="https://cmolinaord.github.io/images/flameshot_config_general.png"></p>
 <p>By default, the configuration file is stored in:</p>
-<div class="highlight"><pre><span></span><span class="o">~/</span><span class="p">.</span><span class="n">config</span><span class="o">/</span><span class="n">Dharkael</span><span class="o">/</span><span class="n">flameshot</span><span class="p">.</span><span class="n">conf</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">~/.config/Dharkael/flameshot.conf</span>
+</code></pre></div>
 
 <p>The other buttom in the tray icon will show you a typical "About" window, with information
 about the version number and some useful shortcuts for the gui interface.</p>
@@ -219,23 +216,20 @@ to launch Flameshot.</p>
 <ul>
 <li>Capture with GUI with custom save path:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">flameshot</span> <span class="n">gui</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">pictures</span><span class="o">/</span><span class="n">screenshot</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">flameshot gui -p ~/pictures/screenshot</span>
+</code></pre></div>
 
 <ul>
 <li>Open the GUI with a delay of 5 seconds:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">flameshot</span> <span class="n">gui</span> <span class="o">-</span><span class="n">d</span> <span class="mi">5000</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">flameshot gui -d 5000</span>
+</code></pre></div>
 
 <ul>
 <li>A fullscreen capture with custom save path and copying to clipboard too:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">flameshot</span> <span class="k">full</span> <span class="o">-</span><span class="k">c</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">pictures</span><span class="o">/</span><span class="n">screenshot</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">flameshot full -c -p ~/pictures/screenshot</span>
+</code></pre></div>
 
 <h2>GUI shortcuts</h2>
 <p>These shortcuts are available in GUI mode:</p>
@@ -304,7 +298,7 @@ amazing tool.</p>
                 <span> in </span>
                 <span class="post_category"><a href="https://cmolinaord.github.io/category/software.html" rel="bookmark"
                                                title="Permalink to software">[ software ]</a></span>
-                <span class="post_date">Sun 18 March 2018</span>
+                <span class="post_date">dom 18 marzo 2018</span>
                 <div><span>Tags : </span>
                             <span><a href="https://cmolinaord.github.io/tag/software.html">#software, </a></span>
                             <span><a href="https://cmolinaord.github.io/tag/open-source.html">#open source, </a></span>
@@ -368,6 +362,27 @@ amazing tool.</p>
                 href="https://github.com/cmolinaord/">@cmolinaord</a> from <a href="https://github.com/Parbhat/pelican-blue">the original</a>.
 		Thanks to <a href="https://parbhatpuri.com">@Parbhat</a>.
         </p>
+	<p>
+		If you want to make a me a donation, you can use the following Bitcoin adress:
+		<div style="font-size:16px;margin:0 auto;width:300px" class="blockchain-btn" data-address="3DUsTVWUMWRpMugR5Lb2gFPAihLSeMpqUu" data-shared="false">
+		<div class="blockchain stage-begin">
+			<img src="https://blockchain.info/Resources/buttons/donate_64.png"/>
+		</div>
+		<div class="blockchain stage-loading" style="text-align:center">
+			<img src="https://blockchain.info/Resources/loading-large.gif"/>
+		</div>
+		<div class="blockchain stage-ready">
+			<p align="center">Please Donate To Bitcoin Address: <b>[[address]]</b></p>
+			<p align="center" class="qr-code"></p>
+		</div>
+		<div class="blockchain stage-paid">
+			Donation of <b>[[value]] BTC</b> Received. Thank You.
+		</div>
+		<div class="blockchain stage-error">
+			<font color="red">[[error]]</font>
+		</div>
+		</div>
+	</p>
     </footer>
 
 
