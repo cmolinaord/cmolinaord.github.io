@@ -170,27 +170,136 @@
                 href="https://github.com/cmolinaord/">@cmolinaord</a> from <a href="https://github.com/Parbhat/pelican-blue">the original</a>.
 		Thanks to <a href="https://parbhatpuri.com">@Parbhat</a>.
         </p>
-	<p>
-		If you want to make a me a donation, you can use the following Bitcoin adress:
-		<div style="font-size:16px;margin:0 auto;width:300px" class="blockchain-btn" data-address="3JefLDNXHaMk9VszGFkLEvqxkPp7mhdTVK" data-shared="false">
-		<div class="blockchain stage-begin">
-			<img src="https://blockchain.info/Resources/buttons/donate_64.png"/>
+	
+	<!-- Donation Section -->
+	<div class="donation-section" style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 10px; text-align: center;">
+		<h3 style="margin-bottom: 15px; color: #333; font-size: 18px;">💝 Support My Work</h3>
+		<p style="margin-bottom: 20px; color: #666; font-size: 14px;">If you find my content helpful, consider making a small donation!</p>
+		
+		<div class="crypto-donations" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px;">
+			<!-- Bitcoin Donation -->
+			<div class="crypto-item" style="flex: 1; min-width: 140px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2s;">
+				<div style="margin-bottom: 10px;">
+					<span style="font-size: 24px;">₿</span>
+					<h4 style="margin: 5px 0; color: #f7931a; font-size: 16px;">Bitcoin</h4>
+				</div>
+				<button class="crypto-btn" data-crypto="bitcoin" style="background: #f7931a; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-size: 12px; transition: background 0.2s;">
+					Donate BTC
+				</button>
+			</div>
+			
+			<!-- Dogecoin Donation -->
+			<div class="crypto-item" style="flex: 1; min-width: 140px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2s;">
+				<div style="margin-bottom: 10px;">
+					<span style="font-size: 24px;">🐕</span>
+					<h4 style="margin: 5px 0; color: #c2a633; font-size: 16px;">Dogecoin</h4>
+				</div>
+				<button class="crypto-btn" data-crypto="dogecoin" style="background: #c2a633; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-size: 12px; transition: background 0.2s;">
+					Donate DOGE
+				</button>
+			</div>
 		</div>
-		<div class="blockchain stage-loading" style="text-align:center">
-			<img src="https://blockchain.info/Resources/loading-large.gif"/>
+		
+		<!-- Address Display (initially hidden) -->
+		<div id="crypto-address" style="margin-top: 20px; padding: 15px; background: white; border-radius: 8px; display: none; word-break: break-all;">
+			<p style="margin: 0 0 10px 0; font-weight: bold; color: #333;"></p>
+			<code style="background: #f8f9fa; padding: 8px; border-radius: 4px; font-size: 12px; color: #666;"></code>
+			<div style="margin-top: 10px;">
+				<button onclick="copyAddress()" style="background: #28a745; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 11px; margin-right: 5px;">Copy Address</button>
+				<button onclick="hideAddress()" style="background: #6c757d; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 11px;">Close</button>
+			</div>
 		</div>
-		<div class="blockchain stage-ready">
-			<p align="center">Please Donate To Bitcoin Address: <b>[[address]]</b></p>
-			<p align="center" class="qr-code"></p>
-		</div>
-		<div class="blockchain stage-paid">
-			Donation of <b>[[value]] BTC</b> Received. Thank You.
-		</div>
-		<div class="blockchain stage-error">
-			<font color="red">[[error]]</font>
-		</div>
-		</div>
-	</p>
+	</div>
+
+	<script>
+		// Cryptocurrency addresses (you can replace these with your actual addresses)
+		const cryptoAddresses = {
+			bitcoin: '3GxKuWtVv1f5saRtY56hDndMkfUdNEf7H7',
+			dogecoin: 'DQy8yxJZreW93WtmXjLH7EaTTxe1Vp9a4y' 
+		};
+
+		// Add hover effects
+		document.querySelectorAll('.crypto-item').forEach(item => {
+			item.addEventListener('mouseenter', () => {
+				item.style.transform = 'translateY(-2px)';
+			});
+			item.addEventListener('mouseleave', () => {
+				item.style.transform = 'translateY(0)';
+			});
+		});
+
+		// Add button click handlers
+		document.querySelectorAll('.crypto-btn').forEach(btn => {
+			btn.addEventListener('click', function() {
+				const crypto = this.dataset.crypto;
+				showAddress(crypto);
+			});
+			
+			// Hover effect for buttons
+			btn.addEventListener('mouseenter', function() {
+				this.style.opacity = '0.8';
+			});
+			btn.addEventListener('mouseleave', function() {
+				this.style.opacity = '1';
+			});
+		});
+
+		function showAddress(crypto) {
+			const addressDiv = document.getElementById('crypto-address');
+			const title = addressDiv.querySelector('p');
+			const code = addressDiv.querySelector('code');
+			
+			const cryptoNames = {
+				bitcoin: 'Bitcoin (BTC)',
+				dogecoin: 'Dogecoin (DOGE)'
+			};
+			
+			title.textContent = `${cryptoNames[crypto]} Address:`;
+			code.textContent = cryptoAddresses[crypto];
+			addressDiv.style.display = 'block';
+			
+			// Smooth scroll to address
+			addressDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+		}
+
+		function hideAddress() {
+			document.getElementById('crypto-address').style.display = 'none';
+		}
+
+		function copyAddress() {
+			const code = document.querySelector('#crypto-address code');
+			const textArea = document.createElement('textarea');
+			textArea.value = code.textContent;
+			document.body.appendChild(textArea);
+			textArea.select();
+			document.execCommand('copy');
+			document.body.removeChild(textArea);
+			
+			// Show feedback
+			const button = event.target;
+			const originalText = button.textContent;
+			button.textContent = 'Copied!';
+			button.style.background = '#28a745';
+			setTimeout(() => {
+				button.textContent = originalText;
+				button.style.background = '#28a745';
+			}, 2000);
+		}
+
+		// Responsive adjustments
+		function adjustDonationLayout() {
+			const cryptoDonations = document.querySelector('.crypto-donations');
+			if (window.innerWidth < 400) {
+				cryptoDonations.style.flexDirection = 'column';
+			} else {
+				cryptoDonations.style.flexDirection = 'row';
+			}
+		}
+
+		window.addEventListener('resize', adjustDonationLayout);
+		adjustDonationLayout();
+	</script>
+	
     </footer>
 
 
